@@ -6,6 +6,8 @@ Sync WP Steem Comments can sync Steemit and WordPress comments.
 
 Before I found [Steemit](https://steemit.com), I am a [WordPress](https://wordpress.org/) blog writer. I write blog on my [WordPress site](http:tson.com) for more than 2 years. Now I am moving to Steemit, but I also post my articals in my WordPress site. But I found a question: some readers leave comments after my post asking the same question on the two different sites. So I must answer them twice. I think there are a lot of blog writers have this problem too. So I develop a wordpress plugin to solve this. Sync WP Steem Comments can sync Steemit and WordPress comments.
 
+## How to use this plugin
+
 ## Roadmap
 I have a detailed plan for this plugin.
 

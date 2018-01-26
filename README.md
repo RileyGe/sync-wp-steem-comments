@@ -9,21 +9,21 @@ Before I found [Steemit](https://steemit.com), I am a [WordPress](https://wordpr
 ## Roadmap
 I have a detailed plan for this plugin.
 
-### 1. Connect WordPress articals and Steemit artical
+### 1. Connect WordPress articles and Steemit articles
 
 I need extend WordPress articles let them have an additional field to save the permlink of the Steemit articles. In this way when we publish a comment beside a WordPress article, the comment also can be send to Steemit article. Besides when we load the WordPress article this plugin also can pull comments from Steemit article.
 
-Status: Already finished in Version 0.1.
+Status: Already finished in Version 0.1
 
-# 2、将Steemit中的评论拉取到WordPress文章评论中
+### 2. Pull the comments from Steemit to WordPress
 
-在文章显示时，读取到steemit的用户名和permlink，通过两者查询到合适的评论，将其显示到合适的位置。
+When we request the WordPress articles, show the Steemit comments below the articles.
 
-如果显示到合适的位置，如果同原有主题相一致，非常重要，需要不断研究。
+In version 0.1, Steemit comments will display before the Wrodpress comments. Also the apperance of the Steemit comments is different from the WordPress comments. This is a simple but useful way. On the other hand, I also can insert Steemit comments into WordPress's database. In this way, Steemit comments can look exactly the same as the WordPress comments. But every comments needs one more field to connected with the Steemit comment, this can lead to more pressure on the WordPress server.
 
-完成到这一步可能就会出一个beta版，这样就可以在用户中进行测试与改进。看大家使用的兴致，下面的功能也会根据大家需要根进。
+Please give me feedback. I'll decide whether to upgrade the method or not.
 
-# 3、将WordPress文章中的评论同步到Steemit中
+### 3、将WordPress文章中的评论同步到Steemit中
 
 现在的想法是将用户名和posting wif输入，每个人负责自己的评论的发布，这样就完全独立运行，与我个人的帐号没有什么关系。
 

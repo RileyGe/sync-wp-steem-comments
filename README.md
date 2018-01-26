@@ -1,4 +1,4 @@
-# sync-wp-steem-comments
+# SYNC-WP-STEEM-COMMENTS
 
 Sync WP Steem Comments can sync Steemit and WordPress comments.
 

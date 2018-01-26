@@ -81,7 +81,7 @@ function wpb_bad_script() {
 
 
 function sync_ws_enqueue_scripts() {
-    //if(is_single()) { //文章页面增加js
+    if(is_single()) { //文章页面增加js
         // 去除已注册的 sync_ws_pull_comments 脚本
         wp_deregister_script('sync_ws_pull_comments');
         wp_deregister_script('sync_ws_steem_js');
@@ -92,7 +92,7 @@ function sync_ws_enqueue_scripts() {
         wp_enqueue_script('sync_ws_steem_js');
         wp_enqueue_script('sync_ws_pull_comments');
         
-    //} 
+    } 
 } 
 
 

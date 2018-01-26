@@ -23,19 +23,26 @@ In version 0.1, Steemit comments will display before the Wrodpress comments. Als
 
 Please give me feedback. I'll decide whether to upgrade the method or not.
 
-### 3、将WordPress文章中的评论同步到Steemit中
+Status: Finished in Version 0.1, but maybe need upgrade.
 
-现在的想法是将用户名和posting wif输入，每个人负责自己的评论的发布，这样就完全独立运行，与我个人的帐号没有什么关系。
+### 3. Push WordPress comments into Steemit
 
-# 4、实现WordPress文章的自动生成
+After version 0.1, I'll complete this function. There are two way to do this task:
 
-这一点我认为比较有必要，使用用户名和permlink找到文章，然后更新到自己的wordpress上，这样两者也可以连接起来，方便又好用。
+* Use the author name and **PRIVATE POSTING KEY** push the comments. 
+* Use my account to push the comments to your post.
 
-# 5、实现WordPress和Steemit文章的同步发布与更新
+First I think the two ways have no different, but if the users use my account to push the comments, I can get the data. From these data, I can know which article is popular in WordPress but not in Steemit. Then I can recommond these articles to other users.
 
-最后这个功能现在有正在开发的插件，要是到了这一步我会联系作者看能不能让两个插件进行兼容，这样的话就能省去不少的开发时间。
+### 4. Automatic generate WordPress article
 
-但最后一个功能使不使用我觉得是一个值得商议的事，因为这个方法可能会使steemit在短时间内充满大量的垃圾文章，所以。。。
+After the article is published in Steemit, the article can be transmited to WordPress in one click.
+
+### 5. Sync the WordPress and Steemit articles publish
+
+**THIS FUNCTION IS NOT RECOMMOND**, because this function can be used to produce a greate amount of junk articles.
+
+If users want to have this function, There are another plugin named [SteemPress](https://github.com/drov0/steempress). As the last step, I'll make sure this plugin can be working together whit [SteemPress](https://github.com/drov0/steempress).
 
 ## How to contribute?
 Yes you can! Join in on our [GitHub repository](https://github.com/RileyGe/sync-wp-steem-comments/) :)

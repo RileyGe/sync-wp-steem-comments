@@ -11,10 +11,14 @@ Before I found [Steemit](https://steemit.com), I am a [WordPress](https://wordpr
 ### Step 1: download zip file from [github](https://github.com/RileyGe/sync-wp-steem-comments).
 ### Step 2: install this plugin in WordPress, and activate plugin.
 ### Step 3: setup the plugin, input the author name and your PRIVATE POSTING KEY.
+You can input the author name and your PRIVATE POSTING KEY in the setting page.
+![The Setting Page of Sycn-WP-Steem-Comments](https://github.com/RileyGe/sync-wp-steem-comments/blob/master/screenshot/SETTING-PAGE.PNG?raw=true)
 ### Step 4: input permlink of Steemit article in the post/update article page in WordPress and save the article.
+You can input the Steemit article permlink in the WordPress posting article page.
+![The Post Article Page of Sycn-WP-Steem-Comments](https://github.com/RileyGe/sync-wp-steem-comments/blob/master/screenshot/ADD-ARTICLE-PAGE.PNG?raw=true)
 ### Step 5: everything done.
 
-## Roadmap
+## Roadmap and what have I done
 I have a detailed plan for this plugin.
 
 ### 1. Connect WordPress articles and Steemit articles

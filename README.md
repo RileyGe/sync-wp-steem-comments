@@ -18,6 +18,8 @@ You can input the Steemit article permlink in the WordPress posting article page
 ![The Post Article Page of Sycn-WP-Steem-Comments](https://github.com/RileyGe/sync-wp-steem-comments/blob/master/screenshot/ADD-ARTICLE-PAGE.PNG?raw=true)
 ### Step 5: everything done.
 
+Now it is something like this:
+
 ## Roadmap and what have I done
 I have a detailed plan for this plugin.
 

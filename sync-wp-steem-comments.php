@@ -81,18 +81,20 @@ function wpb_bad_script() {
 
 
 function sync_ws_enqueue_scripts() {
-    //if(is_single()) { //文章页面增加js
+    if(is_single()) { //文章页面增加js
         // 去除已注册的 sync_ws_pull_comments 脚本
         wp_deregister_script('sync_ws_pull_comments');
         wp_deregister_script('sync_ws_steem_js');
         // 注册 jquery 脚本        
         wp_register_script('sync_ws_steem_js', 'http://tson.com/steemjs/steem.min.js','', false, false);
-        wp_register_script('sync_ws_pull_comments', plugins_url() . '/sync-wp-steem-comments/js/pull_steem_comments.js',array('jquery', 'sync_ws_steem_js'), false, false);
+        wp_register_script('sync_ws_pull_comments', plugin_dir_url(__FILE__) . 'js/pull_steem_comments.js',array('jquery', 'sync_ws_steem_js'), false, false);
         // 提交加载 jquery 脚本
         wp_enqueue_script('sync_ws_steem_js');
-        wp_enqueue_script('sync_ws_pull_comments');
+        wp_enqueue_script('sync_ws_pull_comments'); 
         
-    //} 
+        wp_register_style('sync_ws_comment_style', plugin_dir_url(__FILE__) . 'css/sync-ws-style.css',  array(), '', 'all');  
+        wp_enqueue_style('sync_ws_comment_style');  
+    } 
 } 
 
 

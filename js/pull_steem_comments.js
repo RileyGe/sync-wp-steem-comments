@@ -2,8 +2,10 @@ function load_steemit_comments(author, permlink) {
     steem.api.setOptions({ url: 'https://api.steemit.com' });
 
     var outHTML = '<h3 id="sync-ws-comments-header">来自Steemit的评论</h3>\
+                    <div id="sync-ws-comments-id">\
                         <ol id="{0}" class="sync-ws-comments_list">\
-                        <\ol>';
+                        <\ol>\
+                    </div>';
     jQuery("#comments").prepend(outHTML.format(permlink));    
     jQuery(document).ready(function () {
         steem.api.getContentReplies(author, permlink, contentRepliesCB);					
@@ -102,8 +104,8 @@ String.prototype.format = function(){
 function buildCommentsDiv(title, time, commentText)
 {
     var htmlString = '<div class="sync-wp-comment">\
-							<div class="comment_header">\
-								<cite>{0}</cite>\
+                            <div class="comment_header">\
+                                <cite><a href="http://steemit.com/@{0}" rel="external nofollow" target="_blank">{0}</a></cite>\
 								<span class="time">{1}</span>\
 							</div>\
 							<div class="comment_text">\

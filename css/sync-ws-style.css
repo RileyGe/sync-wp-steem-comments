@@ -1,0 +1,31 @@
+﻿#sync-ws-comments-id .sync-ws-comments_list{
+	margin:5px 3px;
+	padding-left:0px;
+}
+#sync-ws-comments-id .sync-ws-comments_list cite a{
+	font-style:normal;
+	color:#333;
+}
+#sync-ws-comments-id .sync-ws-comments_list li {
+	background: none repeat scroll 0 0 #F0F8FF; 
+	border: 1px solid #c2c2c2;
+	margin: 0px 4px 6px 4px;
+	list-style:none;
+}
+#sync-ws-comments-id .sync-ws-comments_list li div.comment_header {
+	border-bottom: 1px solid #c2c2c2;
+	padding:5px 0px 8px 0px; 
+	margin: 0px 4px 6px 4px;
+}
+
+#sync-ws-comments-id .sync-ws-comments_list li div.comment_header span.time {
+    font-size: 0.9em;
+    color: #999;
+    padding-left: 5px;
+}
+
+#sync-ws-comments-id .sync-ws-comments_list li div.comment_text {
+    padding: 11px 20px;
+    margin: 2px 0;
+    background-color: #fff;
+}

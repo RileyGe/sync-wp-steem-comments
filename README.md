@@ -19,6 +19,10 @@ You can input the Steemit article permlink in the WordPress posting article page
 ### Step 5: everything done.
 
 Now it is something like this:
+ 
+![VERSION0.0.1 IN TSON.COM.PNG](https://github.com/RileyGe/sync-wp-steem-comments/blob/master/screenshot/VERSION0.0.1%20IN%20TSON.COM.PNG?raw=true)
+
+You can find this web page on :[TSON.COM](http://tson.com/wordpress-steemjs-comments/) and this page is connected with [how to use steemjs read comments from blockchain](https://steemit.com/cn/@rileyge/steemjs).
 
 ## Roadmap and what have I done
 I have a detailed plan for this plugin.

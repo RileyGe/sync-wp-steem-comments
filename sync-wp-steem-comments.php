@@ -92,11 +92,8 @@ function sync_ws_enqueue_scripts() {
         wp_enqueue_script('sync_ws_steem_js');
         wp_enqueue_script('sync_ws_pull_comments'); 
         
-<<<<<<< HEAD
         wp_register_style('sync_ws_comment_style', plugin_dir_url(__FILE__) . 'css/sync-ws-style.css',  array(), '', 'all');  
         wp_enqueue_style('sync_ws_comment_style');  
-=======
->>>>>>> 100f2b4e61eaef20fe79002692953e8da068d149
     } 
 } 
 

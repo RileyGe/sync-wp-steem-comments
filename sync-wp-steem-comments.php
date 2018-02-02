@@ -18,12 +18,14 @@ function sync_ws_install() {
     /* 在数据库的 wp_options 表中添加一条记录，第二个参数为默认值 */ 
     add_option("sync_ws_author", "");
     add_option("sync_ws_posting_key", "");
+    add_option("sync_ws_comments_divid", "");
 }
 
 function sync_ws_remove() {  
     /* 删除 wp_options 表中的对应记录 */ 
     delete_option('sync_ws_author');  
     delete_option('sync_ws_posting_key');  
+    delete_option("sync_ws_comments_divid");
 }
 
 if(is_admin()) {
@@ -55,10 +57,15 @@ function sync_ws_html_page() {
                 <input name="sync_ws_posting_key" id="sync_ws_posting_key"
                 value = '<?php echo get_option('sync_ws_posting_key'); ?>'/>
             </p>
+            <p>
+                <span>Comments Div ID:</span>  
+                <input name="sync_ws_comments_divid" id="sync_ws_comments_divid"
+                value = '<?php echo get_option('sync_ws_comments_divid'); ?>'/>
+            </p>
             <p>  
                 <?php wp_nonce_field('update-options'); ?>    
                 <input type="hidden" name="action" value="update" />  
-                <input type="hidden" name="page_options" value="sync_ws_author,sync_ws_posting_key" />  
+                <input type="hidden" name="page_options" value="sync_ws_author,sync_ws_posting_key,sync_ws_comments_divid" />  
  
                 <input type="submit" value="Save" class="button-primary" />  
             </p>  
@@ -70,11 +77,13 @@ function sync_ws_html_page() {
 //add_filter('the_content',  'sync_ws');
 // 添加回调函数到 init 动作上
 add_action('wp_enqueue_scripts', 'sync_ws_enqueue_scripts' );
-add_action('wp_footer', 'wpb_bad_script');
-function wpb_bad_script() {
+add_action('wp_footer', 'sync_wp_add_script');
+function sync_wp_add_script() {
 ?>
     <script type="text/javascript">
-        load_steemit_comments('<?php echo get_option('sync_ws_author'); ?>', '<?php echo get_post_meta(get_the_id(), "sync_ws_permlink_key")[0]; ?>');
+        load_steemit_comments('<?php echo get_option('sync_ws_author'); ?>', 
+        '<?php echo get_post_meta(get_the_id(), "sync_ws_permlink_key")[0]; ?>', 
+        '<?php echo get_option('sync_ws_comments_divid'); ?>');
     </script>
 <?php
 }
@@ -94,22 +103,9 @@ function sync_ws_enqueue_scripts() {
         
         wp_register_style('sync_ws_comment_style', plugin_dir_url(__FILE__) . 'css/sync-ws-style.css',  array(), '', 'all');  
         wp_enqueue_style('sync_ws_comment_style');  
+
     } 
-} 
-
-
- 
-/* 这个函数在日志正文结尾处添加一段版权信息，并且只在 首页 页面才添加 
-function sync_ws( $content ) {  
-    if(!is_single())
-        return $content;
-    
-    $author = get_option('sync_ws_author');
-    $permlink = get_post_meta(get_the_id(), 'sync_ws_permlink_key');
- 
-    return $content;
 }
-*/ 
 
 /* 定义自定义Meta模块 */ 
 add_action('add_meta_boxes', 'sync_ws_add_permlink_box');

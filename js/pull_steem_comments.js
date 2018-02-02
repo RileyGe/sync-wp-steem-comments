@@ -1,4 +1,4 @@
-function load_steemit_comments(author, permlink) {
+function load_steemit_comments(author, permlink, divid) {
     steem.api.setOptions({ url: 'https://api.steemit.com' });
 
     var outHTML = '<h3 id="sync-ws-comments-header">来自Steemit的评论</h3>\
@@ -6,7 +6,29 @@ function load_steemit_comments(author, permlink) {
                         <ol id="{0}" class="sync-ws-comments_list">\
                         <\ol>\
                     </div>';
-    jQuery("#comments").prepend(outHTML.format(permlink));    
+    var commentsDiv = null
+    if(divid == "")
+    {
+        commentsDiv = jQuery("#comments");
+        if(commentsDiv == null)
+        {
+            commentsDiv = jQuery("div[id^='comments']");//id属性以comments开头的所有div标签
+            if(commentsDiv == null)
+            {
+                commentsDiv = jQuery("div[id$='comments']");
+            }
+        }
+    }else
+    {
+        commentsDiv = jQuery(divid);
+    }
+
+    if(commentsDiv == null)
+    {
+        alert("CANNOT find comments id, please setup the \"Comments Div ID\" option.");
+        return;
+    }
+    commentsDiv.prepend(outHTML.format(permlink));    
     jQuery(document).ready(function () {
         steem.api.getContentReplies(author, permlink, contentRepliesCB);					
     });

@@ -95,8 +95,8 @@ function sync_ws_enqueue_scripts() {
         wp_deregister_script('sync_ws_pull_comments');
         wp_deregister_script('sync_ws_steem_js');
         // 注册 jquery 脚本        
-        wp_register_script('sync_ws_steem_js', 'http://tson.com/steemjs/steem.min.js','', false, false);
-        wp_register_script('sync_ws_pull_comments', plugin_dir_url(__FILE__) . 'js/pull_steem_comments.js',array('jquery', 'sync_ws_steem_js'), false, false);
+        wp_register_script('sync_ws_steem_js',  plugin_dir_url(__FILE__) . 'js/steem.min.js','', false, false);
+        wp_register_script('sync_ws_pull_comments', plugin_dir_url(__FILE__) . 'js/pull_steem_comments.js', array('jquery', 'sync_ws_steem_js'), false, false);
         // 提交加载 jquery 脚本
         wp_enqueue_script('sync_ws_steem_js');
         wp_enqueue_script('sync_ws_pull_comments'); 

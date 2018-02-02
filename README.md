@@ -71,4 +71,43 @@ Please support me by following me on Steemit [@rileyge](https://steemit.com/@ril
 
 If you get stuck, you can ask for help in the [WordPress Steem GitHub repository](https://github.com/RileyGe/sync-wp-steem-comments/issues). Bugs also can be reported there.
 
-    
+# SYNC-WP-STEEM-COMMENTS中文说明
+
+Sync WP Steem Comments 是一个可以同步Wordpress和Steemit上评论的插件。
+
+## 如何使用
+
+下一步我会将此插件上传到wordpress的应用市场上，希望安装更加方便。
+
+从github获取最新版方法：
+
+### Step 1:从[github](https://github.com/RileyGe/sync-wp-steem-comments)上下载zip文件。
+### Step 2: 安装并激活插件。
+### Step 3: 设置插件，输入Steemit用户名及 PRIVATE POSTING KEY。如果需要，输入Comments Div的ID。
+关于Comments Div的ID：对于大多数用户来讲，不需要输入。但Wordpress部门主题和插件会将显示Comments的Div的ID改变，如[@justyy](https://steemit.com/@justyy)的Wordpress博客[小赖子的英国生活和资讯](https://justyy.com/)就无法正常使用。
+你可以在设置页面输入用户名及PRIVATE POSTING KEY。
+![The Setting Page of Sycn-WP-Steem-Comments](https://github.com/RileyGe/sync-wp-steem-comments/blob/master/screenshot/SETTING-PAGE.PNG?raw=true)
+### Step 4: 在文章发布（更新）页面输入Steemit文章的permlink，然后保存文章。
+
+![The Post Article Page of Sycn-WP-Steem-Comments](https://github.com/RileyGe/sync-wp-steem-comments/blob/master/screenshot/ADD-ARTICLE-PAGE.PNG?raw=true)
+### Step 5: 完成。
+
+现在效果是这样的:
+ 
+![VERSION0.0.1 IN TSON.COM.PNG](https://github.com/RileyGe/sync-wp-steem-comments/blob/master/screenshot/VERSION0.0.1%20IN%20TSON.COM.PNG?raw=true)
+
+下图为:[TSON.COM](http://tson.com/wordpress-steemjs-comments/)，此页面与Steemit文章[how to use steemjs read comments from blockchain](https://steemit.com/cn/@rileyge/steemjs)相连接。
+
+## 下一步计划
+
+饭要一口一口吃，事要一步一步做，中文的就写点实际的：
+
+### 1. 将Steemit中的评论同步到Wordpress功能完善
+
+#### I 完善现有方案
+现有方案是直接用steemjs在文章加载后直接显示，个人觉得此方案不错，但对于SEO没有任何帮助，所以提供方案II
+#### II 将Steemit的评论插入到Wordpress的数据库中
+此方案有利于SEO，而且博客的整体性更好。
+
+### 2. 将Wordpress中的评论同步的Steemit中
+这个功能可能还需要比较久的时间来做，所以暂时先不规划。 

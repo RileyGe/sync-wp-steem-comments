@@ -20,7 +20,7 @@ function load_steemit_comments(author, permlink, divid) {
         }
     }else
     {
-        commentsDiv = jQuery(divid);
+        commentsDiv = jQuery("#" + divid);
     }
 
     if(commentsDiv == null)

@@ -137,3 +137,41 @@ function buildCommentsDiv(title, time, commentText)
     var timeString = time.format("yyyy年MM月dd日 HH:mm");
     return htmlString.format(title, timeString, commentText);
 }
+function load_steemit_comments_to_json(author, permlink)
+{
+    steem.api.setOptions({ url: 'https://api.steemit.com' });  
+    jQuery(document).ready(function () {
+        steem.api.getContentReplies(author, permlink, contentRepliesCB2Json);					
+    });
+}
+function contentRepliesCB2Json(err, result)
+{
+    if (!err)
+    {
+        for (i = 0; i <= result.length - 1; i++) {
+            var commentJson = {};
+            commentJson['parent'] = result[i].parent_permlink;
+            commentJson['author'] = result[i].author;
+            commentJson['date'] = new Date(result[i].last_update);
+            commentJson['content'] = result[i].body;
+
+            ajax_add_comment(commentJson.toJSONString());
+                       
+            if(result[i].children > 0)
+            {
+                steem.api.getContentReplies(result[i].author, result[i].permlink, contentRepliesCB2Json);
+            }       
+        }
+    }
+    else
+    { alert(err);}
+}
+function ajax_add_comment(jsonComment)
+{
+    //http://tson.com/wp-content/plugins/sycn-wp-steem-comment/js
+    var jsPath = window.document.location.href.substring(0, jsPath.lastindexOf('/'));
+    var pluginDir = jsPath.substring(0, jsPath.lastIndexOf('/'));
+    jQuery.post(pluginDir+'/comments-post.php', jsonComment, function(result){
+        //$("span").html(result);
+    });
+}

@@ -77,7 +77,7 @@ Sync WP Steem Comments 是一个可以同步Wordpress和Steemit上评论的插�
 
 ## 一、如何使用
 
-下一步我会将此插件上传到wordpress的应用市场上，希望安装更加方便。
+下一步我会将此插件上传到wordpress的应用市场上，希望安装更加方便。现在Wordpress正在审核插件，大家稍安勿躁，现在可以用github上下载使用此插件。
 
 从github获取最新版方法：
 
@@ -92,6 +92,8 @@ Sync WP Steem Comments 是一个可以同步Wordpress和Steemit上评论的插�
 如果无法正常显示，再对其进行设置，设置方法为查看博客页的HTML代码，看评论最外层的Div的id是什么，将此id填入到Comments Div ID中。
 
 你可以在设置页面输入用户名及PRIVATE POSTING KEY。
+
+**注：现阶段PRIVATE POSTING KEY可以不填写，现在插件还没有用到此功能**
 
 ![The Setting Page of Sycn-WP-Steem-Comments](https://github.com/RileyGe/sync-wp-steem-comments/blob/master/screenshot/SETTING-PAGE.PNG?raw=true)
 ### Step 4: 在文章发布（更新）页面输入Steemit文章的permlink，然后保存文章。

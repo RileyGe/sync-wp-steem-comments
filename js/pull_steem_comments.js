@@ -177,5 +177,6 @@ function ajax_add_comment(jsonComment)
     var pluginDir = jsPath.substring(0, jsPath.lastIndexOf('/'));
     jQuery.post(pluginDir+'/comments-post.php', jsonComment, function(result){
         //$("span").html(result);
+        alert("success");
     });
 }

@@ -80,10 +80,10 @@ add_action('wp_enqueue_scripts', 'sync_ws_enqueue_scripts' );
 add_action('wp_footer', 'sync_wp_add_script');
 function sync_wp_add_script() {
 ?>
-    <script type="text/javascript">
-        load_steemit_comments('<?php echo get_option('sync_ws_author'); ?>', 
-        '<?php echo get_post_meta(get_the_id(), "sync_ws_permlink_key")[0]; ?>', 
-        '<?php echo get_option('sync_ws_comments_divid'); ?>');
+    <script type="text/javascript">    
+        load_steemit_comments_to_json('<?php echo get_option('sync_ws_author'); ?>', 
+        '<?php echo get_post_meta(get_the_ID(), "sync_ws_permlink_key")[0]; ?>', 
+        '<?php the_ID(); ?>');
     </script>
 <?php
 }

@@ -137,10 +137,11 @@ function buildCommentsDiv(title, time, commentText)
     var timeString = time.format("yyyy年MM月dd日 HH:mm");
     return htmlString.format(title, timeString, commentText);
 }
-function load_steemit_comments_to_json(author, permlink)
+function load_steemit_comments_to_json(author, permlink, postid)
 {
     steem.api.setOptions({ url: 'https://api.steemit.com' });  
     jQuery(document).ready(function () {
+        jQuery("body").append('<span id="sync-ws-postid">{0}</span>'.format(postid));
         steem.api.getContentReplies(author, permlink, contentRepliesCB2Json);					
     });
 }
@@ -150,10 +151,13 @@ function contentRepliesCB2Json(err, result)
     {
         for (i = 0; i <= result.length - 1; i++) {
             var commentJson = {};
-            commentJson['parent'] = result[i].parent_permlink;
+            //为了获取post_id，在开始前先将一个隐藏的span插入到html中
+            commentJson['post_id'] = jQuery("#sync-ws-postid").val();
+            commentJson['steem_parent'] = result[i].parent_permlink;
             commentJson['author'] = result[i].author;
             commentJson['date'] = new Date(result[i].last_update);
-            commentJson['content'] = result[i].body;
+            commentJson['comment'] = result[i].body;
+            commentJson['steem_permlink'] = result[i].permlink;
 
             ajax_add_comment(commentJson.toJSONString());
                        

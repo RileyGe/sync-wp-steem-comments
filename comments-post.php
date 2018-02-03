@@ -115,9 +115,11 @@ if ( ! comments_open( $comment_post_ID ) ) {
 }
 
 $comment_author       = ( isset($json->author) )  ? trim(strip_tags($json->author)) : null;
-$comment_author_email = ( isset($json->email) )   ? trim($_POST['email']) : null;
-$comment_author_url   = ( isset($json->url) )     ? trim($_POST['url']) : null;
-$comment_content      = ( isset($json->comment) ) ? trim($_POST['comment']) : null;
+//由于很多博客都需要email，但steemit又没有email，避免错误，所以将其设置为一个默认的email
+$comment_author_email = 'abc@example.com';
+//$comment_author_email = ( isset($json->email) )   ? trim($_POST['email']) : null;
+$comment_author_url   = 'https://steemit.com/'.$comment_author;
+$comment_content      = ( isset($json->comment) ) ? trim($json->comment) : null;
 
 // If the user is logged in
 $user = wp_get_current_user();
@@ -158,16 +160,32 @@ if ( '' == $comment_content ) {
 if ( 5 > strlen($comment_content) ) {
 	cmt_die( 'COMMENT_SHORT' );
 }
-
-$comment_parent = isset($_POST['comment_parent']) ? absint($_POST['comment_parent']) : 0;
-
-$commentdata = compact('comment_post_ID', 'comment_author', 'comment_author_email', 'comment_author_url', 'comment_content', 'comment_type', 'comment_parent', 'user_ID');
+//没有直接设置comment_parent，需要使用steem_parent来查询
+$comment_parent_temp = get_post_meta($comment_post_ID, $json->steem_parent, true);
+$comment_parent = ($comment_parent_temp != null) ? absint($comment_parent_temp) : 0;
+//由于steemit上的评论一般不是当前，所以增加
+$comment_date = isset($json->comment_date) ? $json->comment_date : current_time( 'mysql' );
+$comment_date_gmt = isset($json->comment_date_gmt) ? $json->comment_date_gmt : get_gmt_from_date($comment_date);
+$commentdata = compact('comment_post_ID', 'comment_author', 'comment_author_email', 'comment_author_url', 'comment_content', 'comment_date', 'comment_date_gmt', 'comment_type', 'comment_parent', 'user_ID');
 
 $comment_id = wp_new_comment( $commentdata );
 if ( ! $comment_id ) {
 	cmt_die( 'FAILD' );
 }
-
+/**
+ * Added by [@rileyge](https://steemit.com/@rileyge)
+ * 增加两个meta_data
+ * 1、在当前POST的meta_data中，以当前permlink为key，以comment的id为value，增加meta_data
+ * 2、在当前的comment的meta_data中，以'steem_permlink'为key，以permlink为value，增加meta_data
+ * 
+ * 两个meta_data造成了数据冗余，但各有用处
+ * 场景1：当插入steemit的comment时需要根据parent来判断其父comment_parent的id为多少，使用1
+ * 场景2：当前版本中尚没有使用，当我们想要有comment下进行一个回复时，想要将这个评论同步到steemit，
+ * 此时需要用id查permlink
+ */
+$permlink = $json->steem_permlink;
+update_post_meta($comment_post_ID, $permlink, $comment_id);
+update_comment_meta( $comment_id, 'steem_permlink', $permlink);
 $comment = get_comment( $comment_id );
 
 /**

@@ -1,4 +1,4 @@
-=== Sync WP Steem Comments ===
+﻿=== Sync WP Steem Comments ===
 Contributors: rileyge
 Donate link: https://steemit.com/@rileyge/
 Tags: wordpress, sync-ws, steem, steemit
@@ -43,3 +43,4 @@ Yes you can! Join in on our [GitHub repository](https://github.com/RileyGe/sync-
 * Initial version in of Sync WP Steem Comments
 * 增加了手动定制Comments的div的id的功能
 注：由于多数评论div的id都是在主题或者插件中comment.h中直接以html代码的形式出现，所以用php获取这个还是相当困难的，所以本插件用三种方法获取：1、如果手动设置，用手动。2、没有手动，直接找comments。3、还没有找“*comments*”的div
+* 新Branch测试

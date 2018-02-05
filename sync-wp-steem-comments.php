@@ -82,7 +82,7 @@ function sync_wp_add_script() {
 ?>
     <script type="text/javascript">
         load_steemit_comments('<?php echo get_option('sync_ws_author'); ?>', 
-        '<?php echo get_post_meta(get_the_id(), "sync_ws_permlink_key")[0]; ?>', 
+        '<?php echo get_post_meta(get_the_ID(), "sync_ws_permlink_key")[0]; ?>', 
         '<?php echo get_option('sync_ws_comments_divid'); ?>');
     </script>
 <?php
@@ -161,13 +161,13 @@ function sync_ws_save_post($post_id) {
     // 第三，我们可以保存值到数据库中
  
     //如果保存在自定义的表，获取文章ID
-    $post_ID = $_POST['post_ID'];
+    //$post_ID = isset($_POST['post_ID']) ? (int) ($_POST['post_ID']) : 0;//此钩子有一个参数，即为post_id
     //过滤用户输入
     $permlink = sanitize_text_field($_POST['sync_ws_permlink']);
  
     // 使用$mydata做些什么 
     // 或者使用
     //add_post_meta($post_ID, '_my_meta_value_key', $mydata, true);
-    update_post_meta($post_ID, 'sync_ws_permlink_key', $permlink);
+    update_post_meta($post_id, 'sync_ws_permlink_key', $permlink);
 }
 ?>

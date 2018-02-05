@@ -10,7 +10,7 @@ function load_steemit_comments(author, permlink, divid) {
     if(divid.length > 0)
         commentsDiv = jQuery("#" + divid);        
 
-    if(commentsDiv.length < 1)
+    if(commentsDiv == null || commentsDiv.length < 1)
         commentsDiv = jQuery("#comments");        
     if(commentsDiv.length < 1)
         commentsDiv = jQuery("div[id^='comments']");//id属性以comments开头的所有div标签   

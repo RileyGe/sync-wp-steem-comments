@@ -15,7 +15,6 @@ Sync WP Steem Comments can sync Steemit and WordPress comments.
 
 Sync WP Steem Comments can sync Steemit and WordPress comments. [Steemit](https://steemit.com/) is a blockchain-based social media platform where anyone can earn rewards. There are more and more persons using Steemit, and more comments on Steemit. So it's important to pull comments from Steemit to Wordpress.
 
-Sync WP Steem Comments可以同步Steemit和WordPress的评论。[Steemit](https://steemit.com/)是一个基于区块链的社交（博客）系统。在Steemit上你可以通过写文章赚钱。越来越多的人在Steemit上写文章，而且Steemit上的评论相比WordPress也活跃，所以个人认为将Steemit同步到WordPress上对自己的博客很有帮助。
 = Features =
 - Automatically sync Steemit and WordPress comments
 - Easy to use User Interface

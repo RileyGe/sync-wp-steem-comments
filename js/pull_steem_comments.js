@@ -7,23 +7,17 @@ function load_steemit_comments(author, permlink, divid) {
                         <\ol>\
                     </div>';
     var commentsDiv = null
-    if(divid == "")
-    {
-        commentsDiv = jQuery("#comments");
-        if(commentsDiv == null)
-        {
-            commentsDiv = jQuery("div[id^='comments']");//id属性以comments开头的所有div标签
-            if(commentsDiv == null)
-            {
-                commentsDiv = jQuery("div[id$='comments']");
-            }
-        }
-    }else
-    {
-        commentsDiv = jQuery("#" + divid);
-    }
+    if(divid.length > 0)
+        commentsDiv = jQuery("#" + divid);        
 
-    if(commentsDiv == null)
+    if(commentsDiv.length < 1)
+        commentsDiv = jQuery("#comments");        
+    if(commentsDiv.length < 1)
+        commentsDiv = jQuery("div[id^='comments']");//id属性以comments开头的所有div标签   
+    if(commentsDiv.length < 1)
+        commentsDiv = jQuery("div[id$='comments']");
+
+    if(commentsDiv.length < 1)
     {
         alert("CANNOT find comments id, please setup the \"Comments Div ID\" option.");
         return;

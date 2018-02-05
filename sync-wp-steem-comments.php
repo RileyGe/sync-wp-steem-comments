@@ -42,25 +42,34 @@ function sync_ws_menu() {
 function sync_ws_html_page() {
     ?>
     <div>  
-        <h2>Sync WP Steemit Comments Setting</h2>  
+        <h2>Sync WP Steemit Comments Setting</h2>
+        <style type="text/css">
+            .sync-ws-admin-span {
+                width:180px; 
+                text-align:left;                 
+                display:inline-block; 
+            }
+        </style>
         <form method="post" action="options.php">  
             <?php /* 下面这行代码用来保存表单中内容到数据库 */ ?>  
             <?php wp_nonce_field('update-options'); ?>  
  
             <p>  
-                <span>Author:</span>
+                <span class='sync-ws-admin-span'>Author:</span>
                 <input name="sync_ws_author" id="sync_ws_author"
-                value = '<?php echo get_option('sync_ws_author'); ?>'/>
+                value = '<?php echo get_option('sync_ws_author'); ?>'/>                
             </p>   
             <p>
-                <span>Posting Key:</span>  
+                <span class='sync-ws-admin-span'>Posting Key:</span>  
                 <input name="sync_ws_posting_key" id="sync_ws_posting_key"
                 value = '<?php echo get_option('sync_ws_posting_key'); ?>'/>
+                <span>In this version, the field is not needed!</span>
             </p>
             <p>
-                <span>Comments Div ID:</span>  
+                <span class='sync-ws-admin-span'>Comments Div ID:</span>  
                 <input name="sync_ws_comments_divid" id="sync_ws_comments_divid"
                 value = '<?php echo get_option('sync_ws_comments_divid'); ?>'/>
+                <span>Leave it empty if everything is OK.</span>
             </p>
             <p>  
                 <?php wp_nonce_field('update-options'); ?>    
